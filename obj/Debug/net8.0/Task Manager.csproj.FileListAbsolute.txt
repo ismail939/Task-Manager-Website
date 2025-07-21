@@ -1,0 +1,33 @@
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\appsettings.Development.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\appsettings.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.staticwebassets.runtime.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.staticwebassets.endpoints.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.exe
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.deps.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.runtimeconfig.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.dll
+E:\C# learning\Task Manager\Task Manager\Task Manager\bin\Debug\net8.0\Task Manager.pdb
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.GeneratedMSBuildEditorConfig.editorconfig
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.AssemblyInfoInputs.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.AssemblyInfo.cs
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.csproj.CoreCompileInputs.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.MvcApplicationPartsAssemblyInfo.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.RazorAssemblyInfo.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.RazorAssemblyInfo.cs
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\scopedcss\bundle\Task Manager.styles.css
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\scopedcss\projectbundle\Task Manager.bundle.scp.css
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\staticwebassets.build.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\staticwebassets.development.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.dll
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\refint\Task Manager.dll
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.pdb
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\Task Manager.genruntimeconfig.cache
+E:\C# learning\Task Manager\Task Manager\Task Manager\obj\Debug\net8.0\ref\Task Manager.dll
