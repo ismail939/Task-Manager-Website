@@ -29,3 +29,20 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.btn-classy {
+  background-color: white;  /* Dark charcoal */
+  color: rgb(131, 140, 224);             /* Light text */
+  border: 1px solid white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-classy:hover {
+  background-color: #2c2c2e;
+  color: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
