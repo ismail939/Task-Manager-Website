@@ -6,46 +6,119 @@
 
 
     <div class="navbar navbar-expand-md w-100 navbar-dark p-1 " style="background-color: #241b46;">
-    <div class="container-fluid">
-        <div class="navbar-brand">
-            <img src="/images/logo1.png" alt="logo" class="p-0 mx-0" style="height:60px; width:60px;">
-            <p style="font-size: 0.5rem;" class="text-white">FLEET CLUB ELGEZIRAH</p>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-         <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Rooms</a>
-            </li>
-            <li class="nav-item">
-                 <a href="#" class="nav-link">Restaurant</a>
-            </li>
-            <li class="nav-item">
-                 <a href="#" class="nav-link">Halls</a>
-            </li>
-        </ul>
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <img src="/images/logo1.png" alt="logo" class="p-0 mx-0" style="height:60px; width:60px;">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+                    aria-label="Expand Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-        .
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Halls</a>
+                    </li>
+                </ul>
+                <p style="font-size: 3rem;" class="text-white offset-2">FLEET CLUB ELGEZIRAH</p>
+            </div>
+
+        </div>
     </div>
+    <!-- Bootstrap Carousel -->
+    <div id="elegantCarousel" class="carousel slide carousel-fade mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/img1.jpg" class="d-block rounded" alt="Photo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img2.jpg" class="d-block rounded" alt="Photo 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img3.jpg" class="d-block rounded" alt="Photo 3">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img4.jpg" class="d-block rounded" alt="Photo 4">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/markeb.jpg" class="d-block rounded" alt="Photo 5">
+            </div>
+        </div>
+
+        <!-- Optional Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#elegantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#elegantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+        <!-- Optional Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="4"></button>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="row g-0 mt-4">
-            <div class="col mx-2">
-                <p style="font-size: 3rem; font-weight: bold;" class="fst-italic text-white">Book with us parties, rooms
-                    and tables</p>
-                <p class="fs-4 text-white">Lovely place to enjoy your time in!</p>
-            </div>
-            <div class="col">
-                <img src="/images/markeb.jpg" alt="fc1 image" style="height: 600px; width: auto;">
-            </div>
-        </div>
-        <div class="row">
+    <div class="container py-5">
+        <h3 class="text-center mb-1">Our Vision</h3>
+        <p class="text-center text-muted lead mx-auto" style="max-width: 800px;">
+            Welcome to Fleet Club ElGezirah — a timeless escape in the heart of Cairo, where elegance meets the Nile.
+            Nestled
+            on the scenic island of Zamalek, our historic hotel blends royal-era charm with modern comfort, offering
+            guests
+            a unique experience inspired by the legacy of King Farouk. Whether you're dining at our gourmet restaurants,
+            celebrating aboard our signature Nile cruise boats, or relaxing by the river with panoramic views, Fleet
+            Club
+            promises a stay filled with warmth, refinement, and unforgettable moments. Our mission is simple: to ensure
+            every guest leaves with a smile and memories to last a lifetime.
+        </p>
+    </div>
+
+    <div class="image-overlay-container mb-4 py-2 mt-1">
+        <h3 class="text-center mb-4">Rooms</h3>
+        <img src="/images/room.jpg" alt="room" class="d-block rounded" id="imgRoom">
+        <p class="text-center text-muted lead mx-auto" style="max-width: 800px;">
+            Our elegantly furnished rooms combine classic charm with modern luxury, offering stunning Nile views and
+            ultimate comfort. Each room is designed to provide a serene escape, with premium amenities and refined
+            details
+            to elevate your stay.
+        </p>
+        <a href="/restaurants.html" class="btn btn-outline-light hover-button" id="img_btn">Explore Rooms</a>
+    </div>
+
+    <div class="image-overlay-container mb-4 py-2 mt-1">
+        <h3 class="text-center mb-4">Restaurant</h3>
+        <img src="/images/img2.jpg" alt="room" class="d-block rounded" id="imgRoom">
+        <p class="text-center text-muted lead mx-auto" style="max-width: 800px;">
+            Our restaurants offer a luxurious dining experience with a blend of authentic Oriental flavors and
+            international cuisine, all served in a refined, riverside ambiance.
+        </p>
+        <a href="/restaurants.html" class="btn btn-outline-light hover-button" id="img_btn">Explore Restaurants</a>
+    </div>
+
+    <div class="image-overlay-container mb-4 py-2 mt-1">
+        <h3 class="text-center mb-4">Halls</h3>
+        <img src="/images/halls.jpg" alt="room" class="d-block rounded" id="imgRoom">
+        <p class="text-center text-muted lead mx-auto" style="max-width: 800px;">
+            Our elegantly designed halls are perfect for weddings, events, and corporate gatherings, combining
+            sophisticated decor with state-of-the-art facilities and breathtaking Nile views.
+        </p>
+        <a href="/restaurants.html" class="btn btn-outline-light hover-button" id="img_btn">Explore Halls</a>
+    </div>
+    @* <div class="row">
             <div class="col offset-1">
                 <button class="btn btn-lg px-4 btn-classy" data-bs-toggle="modal" data-bs-target="#myModal">
                     BOOK NOW!
@@ -91,6 +164,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> *@
 
 </body>
