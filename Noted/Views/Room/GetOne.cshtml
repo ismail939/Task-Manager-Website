@@ -1,0 +1,48 @@
+@model Noted.Models.Room
+@{
+    ViewData["Title"] = "Edit Room";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow-sm rounded-4">
+        <div class="card-body p-4">
+            <h3 class="mb-4 text-center">Edit Room</h3>
+
+            <form asp-action="EditRoom" asp-controller="Room" method="post">
+                <!-- Room Number -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" placeholder="@Model.RoomNumber" required>
+                    <label for="RoomNumber">Number</label>
+                </div>
+
+
+                <!-- Price -->
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="RoomPrice" name="RoomPrice" placeholder="@Model.RoomPrice"
+                            min="0" step="500" required>
+                        <label for="RoomPrice">Price</label>
+                    </div>
+                    <span class="input-group-text">ج.م</span>
+                </div>
+
+                <!-- Room Location -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="RoomLocation" name="RoomLocation"
+                        placeholder="@Model.RoomLocation" required>
+                    <label for="RoomLocation">Location</label>
+                </div>
+                <!-- Room Capacity -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="RoomCapacity" name="RoomCapacity" placeholder="@Model.RoomCapacity"
+                        required>
+                    <label for="RoomCapacity">Capacity</label>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100 py-2">
+                    Save Room
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
