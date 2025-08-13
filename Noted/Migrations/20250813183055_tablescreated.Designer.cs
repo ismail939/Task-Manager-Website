@@ -11,8 +11,8 @@ using Noted.Data;
 namespace Noted.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250812172402_addingAdminTable2")]
-    partial class addingAdminTable2
+    [Migration("20250813183055_tablescreated")]
+    partial class tablescreated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,39 @@ namespace Noted.Migrations
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("Noted.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
             modelBuilder.Entity("Noted.Models.Room", b =>
                 {
                     b.Property<int>("RoomId")
@@ -45,9 +78,6 @@ namespace Noted.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
-
-                    b.Property<bool>("RoomBooked")
-                        .HasColumnType("bit");
 
                     b.Property<int>("RoomCapacity")
                         .HasColumnType("int");
@@ -65,6 +95,19 @@ namespace Noted.Migrations
                     b.HasKey("RoomId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("Noted.Models.Table", b =>
+                {
+                    b.Property<int>("TableNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TableNumber"));
+
+                    b.HasKey("TableNumber");
+
+                    b.ToTable("Tables");
                 });
 #pragma warning restore 612, 618
         }

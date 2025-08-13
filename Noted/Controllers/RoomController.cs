@@ -20,8 +20,6 @@ public class RoomController : Controller
     [Route("rooms")]
     public IActionResult GetAll() // after this is called the view of all rooms will be displayed
     {
-        Console.WriteLine("Fetching all roomsHHHHHHHHHHHHHHHHHHHHHHHHH");
-        Console.WriteLine(HttpContext.Session.GetString("AdminLoggedIn"));
         var rooms = _context.Rooms.ToList();
         return View("GetAll", rooms);
     }
@@ -51,7 +49,6 @@ public class RoomController : Controller
 
         // Update the room properties
         room.RoomNumber = updatedRoom.RoomNumber;
-        room.RoomBooked = updatedRoom.RoomBooked;
         room.RoomPrice = updatedRoom.RoomPrice;
         room.RoomLocation = updatedRoom.RoomLocation;
         room.RoomCapacity = updatedRoom.RoomCapacity;

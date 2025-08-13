@@ -1,0 +1,30 @@
+
+@{
+    ViewData["Title"] = "Add Table";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow-sm rounded-4">
+        <div class="card-body p-4">
+            <h3 class="mb-4 text-center">Add New Table</h3>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger mb-0" })
+                </div>
+            }
+            <form asp-action="AddTable" asp-controller="Table" method="post">
+                <!-- Table Number -->
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="TableNumber" name="TableNumber" placeholder="" required>
+                    <label for="TableNumber">Number</label>
+                </div>
+ 
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100 py-2">
+                    Add Table
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,6 @@ namespace Noted.Models
         public int RoomId { get; set; }
         [Required]
         public int RoomNumber { get; set; }
-        public bool RoomBooked { get; set; }
         [Required]
         [Range(0.01, double.MaxValue, ErrorMessage = "Room price must be greater than zero.")]
         [DataType(DataType.Currency)]
@@ -18,10 +17,6 @@ namespace Noted.Models
         public string RoomLocation { get; set; }
         [Required]
         public int RoomCapacity { get; set; }=1; // Default value
-        public Room()
-        {
-            RoomBooked = false;
-        }
         public class RoomLocationValidationAttribute : ValidationAttribute
         {
             protected override ValidationResult IsValid(object value, ValidationContext validationContext)

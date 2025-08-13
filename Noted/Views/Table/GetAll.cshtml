@@ -1,0 +1,64 @@
+@model IEnumerable<Noted.Models.Table>
+
+@{
+    ViewData["Title"] = "All Tables";
+}
+
+<h2 class="text-center">All Tables</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Table Number</th>
+            <th>Booked</th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var table in Model)
+    {
+        <tr>
+            <td>@table.TableNumber</td>
+            <td>False</td> <!-- to be done later !!!!!!!!!!!!!!!!!!!! -->
+            <td>
+                <!-- Delete Button -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal-@table.TableNumber">
+                    Delete
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal-@table.TableNumber" tabindex="-1"
+                    aria-labelledby="deleteModalLabel-@table.TableNumber" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered"> <!-- This centers it vertically -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel-@table.TableNumber">Confirm Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete table <strong>@table.TableNumber</strong>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                                <form asp-controller="Table" asp-action="DeleteTable" asp-route-tableNumber="@table.TableNumber"
+                                    method="post">
+                                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<a asp-controller="Table" asp-action="AddTable" class="btn btn-success rounded-circle shadow"
+    style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+    <i class="bi bi-plus-lg" style="font-size: 1.5rem;"></i>
+</a>
