@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http; // For HttpContext and session extension methods
 using Noted.Data;
 using Noted.Models;
 
@@ -19,6 +20,8 @@ public class RoomController : Controller
     [Route("rooms")]
     public IActionResult GetAll() // after this is called the view of all rooms will be displayed
     {
+        Console.WriteLine("Fetching all roomsHHHHHHHHHHHHHHHHHHHHHHHHH");
+        Console.WriteLine(HttpContext.Session.GetString("AdminLoggedIn"));
         var rooms = _context.Rooms.ToList();
         return View("GetAll", rooms);
     }
@@ -80,6 +83,21 @@ public class RoomController : Controller
         }
 
         return View("AddRoom");
+    }
+    [HttpPost]
+    [Route("rooms/delete/{roomNumber}")]
+    public IActionResult DeleteRoom(int roomNumber)
+    {
+        Console.WriteLine("Deleting room: " + roomNumber);
+        var room = _context.Rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+        if (room == null)
+        {
+            return NotFound();
+        }
+
+        _context.Rooms.Remove(room);
+        _context.SaveChanges();
+        return RedirectToAction("GetAll");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

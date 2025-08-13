@@ -30,9 +30,39 @@
             <td>@room.RoomCapacity</td>
             <td>
                 <a href="rooms/@room.RoomNumber" class="btn btn-primary">Edit</a>
-                <a href="@Url.Action("DeleteRoom", "Room", new { id = room.RoomId })" class="btn btn-danger">Delete</a>
+                    <!-- Delete Button -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal-@room.RoomNumber">
+                        Delete
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal-@room.RoomNumber" tabindex="-1"
+                        aria-labelledby="deleteModalLabel-@room.RoomNumber" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered"> <!-- This centers it vertically -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel-@room.RoomNumber">Confirm Delete</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete room <strong>@room.RoomNumber</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                                    <form asp-controller="Room" asp-action="DeleteRoom" asp-route-roomNumber="@room.RoomNumber"
+                                        method="post">
+                                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </td>
         </tr>
     }
     </tbody>
 </table>
+
+

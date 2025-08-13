@@ -6,5 +6,6 @@ namespace Noted.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

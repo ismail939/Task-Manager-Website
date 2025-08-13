@@ -11,7 +11,8 @@
             <form asp-action="EditRoom" asp-controller="Room" method="post">
                 <!-- Room Number -->
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" placeholder="@Model.RoomNumber" required>
+                    <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" placeholder=""
+                        value="@Model.RoomNumber" required>
                     <label for="RoomNumber">Number</label>
                 </div>
 
@@ -19,8 +20,8 @@
                 <!-- Price -->
                 <div class="input-group mb-3">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="RoomPrice" name="RoomPrice" placeholder="@Model.RoomPrice"
-                            min="0" step="500" required>
+                        <input type="number" class="form-control" id="RoomPrice" name="RoomPrice"
+                            placeholder="" value="@Model.RoomPrice"       min="0" step="500" required>
                         <label for="RoomPrice">Price</label>
                     </div>
                     <span class="input-group-text">ج.م</span>
@@ -29,13 +30,13 @@
                 <!-- Room Location -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="RoomLocation" name="RoomLocation"
-                        placeholder="@Model.RoomLocation" required>
+                        placeholder="" value="@Model.RoomLocation" required>
                     <label for="RoomLocation">Location</label>
                 </div>
                 <!-- Room Capacity -->
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="RoomCapacity" name="RoomCapacity" placeholder="@Model.RoomCapacity"
-                        required>
+                    <input type="text" class="form-control" id="RoomCapacity" name="RoomCapacity"
+                        placeholder="" value="@Model.RoomCapacity" required>
                     <label for="RoomCapacity">Capacity</label>
                 </div>
                 <!-- Submit Button -->
