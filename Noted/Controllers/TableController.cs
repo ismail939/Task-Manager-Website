@@ -33,13 +33,16 @@ public class TableController : Controller
     public IActionResult AddTable(Table newTable)
     {
         Console.WriteLine("Adding table: " + " with data: " + newTable.TableNumber);
+        if (_context.Tables.Any(t => t.TableNumber == newTable.TableNumber))
+        {
+            ModelState.AddModelError("TableNumber", "This table number already exists.");
+        }
         if (ModelState.IsValid)
         {
             _context.Tables.Add(newTable);
             _context.SaveChanges();
             return RedirectToAction("GetAll");
         }
-        ModelState.AddModelError("", "This table exists");
         return View("AddTable", newTable);
     }
     [HttpPost]

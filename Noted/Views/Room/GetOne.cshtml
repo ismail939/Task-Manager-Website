@@ -7,7 +7,12 @@
     <div class="card shadow-sm rounded-4">
         <div class="card-body p-4">
             <h3 class="mb-4 text-center">Edit Room</h3>
-
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger mb-0" })
+                </div>
+            }
             <form asp-action="EditRoom" asp-controller="Room" method="post">
                 <!-- Room Number -->
                 <div class="form-floating mb-3">
@@ -15,7 +20,7 @@
                         value="@Model.RoomNumber" required>
                     <label for="RoomNumber">Number</label>
                 </div>
-
+                <input type="hidden" name="RoomId" value="@Model.RoomId" />
 
                 <!-- Price -->
                 <div class="input-group mb-3">

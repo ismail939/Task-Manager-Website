@@ -41,20 +41,28 @@ public class RoomController : Controller
     public IActionResult EditRoom(Room updatedRoom)
     {
         Console.WriteLine("Editing room: " + " with data: " + updatedRoom.RoomNumber);
-        var room = _context.Rooms.FirstOrDefault(r => r.RoomNumber == updatedRoom.RoomNumber);
+        var room = _context.Rooms.FirstOrDefault(r => r.RoomId == updatedRoom.RoomId);
         if (room == null)
         {
             return NotFound();
         }
-
-        // Update the room properties
-        room.RoomNumber = updatedRoom.RoomNumber;
-        room.RoomPrice = updatedRoom.RoomPrice;
-        room.RoomLocation = updatedRoom.RoomLocation;
-        room.RoomCapacity = updatedRoom.RoomCapacity;
-
-        _context.SaveChanges();
-        return RedirectToAction("GetAll");
+        if (_context.Rooms.Any(r => r.RoomNumber == room.RoomNumber && r.RoomId != room.RoomId))
+        {
+            ModelState.AddModelError("RoomNumber", "This room number already exists.");
+        }
+        if (ModelState.IsValid)
+        {
+            // Update the room properties
+            room.RoomNumber = updatedRoom.RoomNumber;
+            room.RoomPrice = updatedRoom.RoomPrice;
+            room.RoomLocation = updatedRoom.RoomLocation;
+            room.RoomCapacity = updatedRoom.RoomCapacity;
+            Console.WriteLine("Updated room: " + room.RoomNumber);
+            _context.SaveChanges();
+            return RedirectToAction("GetAll");
+        }
+        Console.WriteLine("Model state is invalid. Errors:");
+        return View("GetOne", updatedRoom);
     }
     [HttpGet]
     [Route("rooms/add")]
@@ -68,6 +76,10 @@ public class RoomController : Controller
     public IActionResult AddRoom(Room room)
     {
         Console.WriteLine("Adding room: " + room.RoomNumber);
+        if (_context.Rooms.Any(r => r.RoomNumber == room.RoomNumber))
+        {
+            ModelState.AddModelError("RoomNumber", "This room number already exists.");
+        }
         if (ModelState.IsValid)
         {
             _context.Rooms.Add(room);

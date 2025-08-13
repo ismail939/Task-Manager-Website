@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Noted.Data;
 
@@ -10,9 +11,11 @@ using Noted.Data;
 namespace Noted.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250813183949_UpdatedTableId")]
+    partial class UpdatedTableId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +35,7 @@ namespace Noted.Migrations
 
                     b.HasKey("Username");
 
-                    b.ToTable("Admins", (string)null);
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("Noted.Models.Client", b =>
@@ -65,7 +68,7 @@ namespace Noted.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients", (string)null);
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Noted.Models.Room", b =>
@@ -91,7 +94,7 @@ namespace Noted.Migrations
 
                     b.HasKey("RoomId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("Noted.Models.Table", b =>
@@ -110,7 +113,7 @@ namespace Noted.Migrations
                     b.HasIndex("TableNumber")
                         .IsUnique();
 
-                    b.ToTable("Tables", (string)null);
+                    b.ToTable("Tables");
                 });
 #pragma warning restore 612, 618
         }

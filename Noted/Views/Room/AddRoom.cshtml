@@ -8,7 +8,12 @@
     <div class="card shadow-sm rounded-4">
         <div class="card-body p-4">
             <h3 class="mb-4 text-center">Add New Room</h3>
-
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger mb-0" })
+                </div>
+            }
             <form asp-action="AddRoom" asp-controller="Room" method="post">
                 <!-- Room Name -->
                 <div class="form-floating mb-3">
