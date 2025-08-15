@@ -17,9 +17,8 @@ html {
   min-height: 100%;
 }
 
-body {
-  
-  padding-top: 150px;
+
+#homePage {
   margin-top: 100px;
 }
 
