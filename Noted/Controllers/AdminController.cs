@@ -20,8 +20,18 @@ public class AdminController : Controller
     {
         return View("AdminLogIn");
     }
-    [HttpPost]
+    [HttpGet]
     [Route("admin/dashboard")]
+    public IActionResult Dashboard()
+    {
+        if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
+        {
+            return RedirectToAction("LogIn");
+        }
+        return View();
+    }
+    [HttpPost]
+    [Route("admin/login")]
     public IActionResult Login(Admin admin)
     {
         Console.WriteLine("Attempting to log in with username: " + admin.Username);
@@ -33,7 +43,7 @@ public class AdminController : Controller
             {
                 // Admin login successful, redirect to the admin dashboard 
                 HttpContext.Session.SetString("AdminLoggedIn", "true");
-                return View("Dashboard");
+                return RedirectToAction("Dashboard");
             }
             ModelState.AddModelError("", "Invalid username or password.");
         }

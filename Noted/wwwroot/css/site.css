@@ -18,7 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  
+  padding-top: 150px;
+  margin-top: 100px;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -95,3 +97,15 @@ body {
       transform: translateY(-3px);
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
     }
+
+    .navbar .navbar-nav .nav-link {
+    transition: all 0.1s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #f8b440;
+    /* background-color: #fff; */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* glow effect */
+    transform: translateY(-2px); /* slight offset upward */
+}
+

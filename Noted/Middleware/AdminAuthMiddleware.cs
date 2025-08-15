@@ -15,7 +15,7 @@ public class AdminAuthMiddleware
     {
         var path = context.Request.Path.Value?.ToLower();
 
-        var protectedPaths = new[] { "/rooms", "/bookings", "/clients", "/halls" };
+        var protectedPaths = new[] {"admin/dashboard" ,"/rooms", "/bookings", "/clients", "/halls" };
         bool isProtected = protectedPaths.Any(path.StartsWith);
 
         if (isProtected)
