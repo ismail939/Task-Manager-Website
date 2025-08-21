@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Room";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid d-flex justify-content-center pagebody">
+ <!-- Bootstrap Carousel -->
+    <div id="elegantCarousel" class="carousel slide carousel-fade mt-5" data-bs-ride="carousel" style="width: 1000px; ">
+        <div class="carousel-inner g-0">
+            <div class="carousel-item">
+                <img src="/images/img6.jpg" class="w-100 rounded" alt="Photo 1">
+            </div>
+            <div class="carousel-item p-0 active">
+                <img src="/images/img5.jpg" class="w-100 rounded" alt="Photo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/rooms1.jpg" class="w-100 rounded" alt="Photo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/rooms2.jpg" class="w-100 rounded" alt="Photo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/rooms3.jpg" class="w-100 rounded" alt="Photo 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img3.jpg" class="w-100 rounded" alt="Photo 3">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img4.jpg" class=" w-100 rounded" alt="Photo 4">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/markeb.jpg" class=" w-100 rounded" alt="Photo 5">
+            </div>
+        </div>
+
+        <!-- Optional Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#elegantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#elegantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+        <!-- Optional Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="6"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="7"></button>
+            
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h3 class=" mb-3">Room Booking</h3>
+        
+  <div class="btn-group" role="group" aria-label="Date selection group" style="width: 100%;">
+
+    <!-- Arrival Date Label and Dropdown -->
+    <div class="mb-3">
+      <label for="arrivalDate" class="form-label">Check-in</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+        <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date">
+      </div>
+    </div>
+
+    <!-- Departure Date Label and Dropdown -->
+    <div class="mb-3">
+      <label for="departureDate" class="form-label">Check-out</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+        <input type="date" class="form-control" id="departureDate" placeholder="Select Departure Date">
+      </div>
+    </div>
+
+    <!-- Room Type Label and Dropdown -->
+    <div class="mb-3">
+      <label for="roomType" class="form-label">Room Type</label>
+      <select class="form-select" id="roomType" aria-label="Room Type">
+        <option selected>Select Room Type</option>
+        <option value="1">Single Room</option>
+        <option value="2">Double Room</option>
+        <option value="3">Suite</option>
+      </select>
+    </div>
+    <div class="mb-3">
+    <button type="button" class="btn btn-primary w-100">Book Now</button>
+  </div>
+  </div>
+</div>
+
+
+    </div>

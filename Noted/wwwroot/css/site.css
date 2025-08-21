@@ -48,13 +48,45 @@ html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#imgRoom, #elegantCarousel img {
-    width: 800px;
-    height: 600px;
-    object-fit: cover;
-    margin: 0 auto; /* Center horizontally */
-    object-position: center bottom;
+#imgRoom  {
+    width: 900px;
+    height: 700px;
+    object-fit: fill;
+    margin: 0 auto; 
+        object-position: center bottom;
   }
+  
+  #elegantCarousel {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#elegantCarousel img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+.carousel-control-prev, .carousel-control-next {
+     width: 5%;
+
+  background-color: transparent; /* no ugly block */
+  top: 0;
+  bottom: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+  
+}
+
+
 
    .image-overlay-container {
     position: relative;
@@ -108,3 +140,75 @@ html {
     transform: translateY(-2px); /* slight offset upward */
 }
 
+.pagebody {
+    margin-top: 100px;
+}
+
+
+
+/* Adding a subtle box-shadow */
+.form-select:focus, .input-group input:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Optional: Add icons inside dropdown */
+input[type="date"], .form-select {
+  font-size: 16px;
+  height: 50px;
+}
+
+/* Icon style inside date input */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #fff;
+  border: none;
+}
+/* Ensure the button group is using 100% width and has no constricting styles */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between; /* Distribute space between elements */
+}
+
+/* Label Styling */
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Date Picker and Select Styling */
+.input-group-text{
+  background-color: #f1f1f1;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  font-size: 16px;
+}
+
+/* Input Fields */
+ .form-control, .form-select {
+  width: 100%; /* Ensure select takes up 100% width */
+  font-size: 16px;
+  height: 40px; /* Set a consistent height */
+  border: 1px solid #ccc; /* Border for visual clarity */
+}
+
+/* Adding subtle box-shadow on focus */
+.input-group input:focus, .form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Ensure each form group (label + input) takes up full width */
+.mb-3 {
+  width: 100%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

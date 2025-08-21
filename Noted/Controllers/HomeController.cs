@@ -12,7 +12,8 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-    
+    [HttpGet]
+    [Route("/")]
     public IActionResult Index()
     {
         return View();
@@ -21,6 +22,13 @@ public class HomeController : Controller
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    [HttpGet]
+    [Route("/roompage")]
+    public IActionResult RoomPage()
+    {
+        return View("Room");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
