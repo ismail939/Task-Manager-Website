@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Add Blog Post";
+    Layout = "~/Views/Shared/_Layout admin.cshtml";
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" style="margin-top: 100px;">
+    <div class="mb-3">
+        <label  class="form-label">Title</label>
+        <input class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label"></label>
+
+        <!-- Quill Editor -->
+        <div id="editor" style="height: 300px;"></div>
+
+        <!-- Hidden field for storing HTML content -->
+        <input type="hidden"  id="Content" />
+    </div>
+    <button type="submit" class="btn btn-primary">Publish</button>
+</form>
+
+@section Scripts {
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: 'Write your blog here...',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['link', 'image'],
+                    ['clean']
+                ]
+            }
+        });
+
+        // Copy Quill HTML content to hidden input before form submit
+        document.querySelector('form').onsubmit = function () {
+            document.querySelector('#Content').value = quill.root.innerHTML;
+        };
+    </script>
+}

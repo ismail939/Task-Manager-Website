@@ -56,4 +56,43 @@ public class AdminController : Controller
         HttpContext.Session.Remove("AdminLoggedIn"); // ❌ remove key
         return RedirectToAction("Index", "Home"); // Redirect to home page
     }
+    [HttpGet]
+    [Route("admin/blogposts/add")]
+    public IActionResult AddBlogPost()
+    {
+        Console.WriteLine("Navigated to AddBlogPost view");
+        return View();
+    }
+    [HttpPost]
+    [Route("admin/blogposts/add")]
+    public IActionResult AddBlogPost(BlogPost blogPost)
+    {
+        if (ModelState.IsValid)
+        {
+            blogPost.CreatedAt = DateTime.Now;
+            _context.BlogPosts.Add(blogPost);
+            _context.SaveChanges();
+            return RedirectToAction("BlogPosts");
+        }
+        return View("AddBlogPost", blogPost);
+    }
+    [HttpGet]
+    [Route("admin/blogposts")]
+    public IActionResult BlogPosts()
+    {
+        var blogPosts = _context.BlogPosts.ToList();
+        return View(blogPosts);
+    }
+    [HttpGet]
+    [Route("admin/blogpost/{id}")]
+    public IActionResult BlogPost(int id)
+    {
+        var blogPost = _context.BlogPosts.FirstOrDefault(bp => bp.Id == id);
+        if (blogPost == null)
+        {
+            ModelState.AddModelError("", "Blog post not found.");
+            return View("News");
+        }
+        return View(blogPost);
+    }
 }

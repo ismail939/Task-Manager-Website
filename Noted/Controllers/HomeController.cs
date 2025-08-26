@@ -7,10 +7,12 @@ namespace Noted.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly Noted.Data.AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, Noted.Data.AppDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
     [HttpGet]
     [Route("/")]
@@ -30,7 +32,33 @@ public class HomeController : Controller
     {
         return View("Room");
     }
-
+    [HttpGet]
+    [Route("/news")]
+    public IActionResult News()
+    {
+        return View();
+    }
+    [HttpGet]
+    [Route("/blogposts")]
+    public IActionResult BlogPosts()
+    {
+        var blogPosts = _context.BlogPosts.ToList();
+        return View(blogPosts);
+    }
+    [HttpGet]
+    [Route("/blogpost/{id}")]
+    public IActionResult BlogPost(int id)
+    {
+        var blogPost = _context.BlogPosts.FirstOrDefault(bp => bp.Id == id);
+        if (blogPost == null)
+        {
+            ModelState.AddModelError("", "Blog post not found.");
+            return View("News");
+        }
+        return View(blogPost);
+    }
+    
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

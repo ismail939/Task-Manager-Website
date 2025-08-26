@@ -9,5 +9,7 @@ namespace Noted.Data
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Table> Tables { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<BlogImage> BlogImages { get; set; }
     }
 }

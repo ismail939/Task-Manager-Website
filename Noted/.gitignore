@@ -32,3 +32,4 @@ ScaffoldingReadMe.txt
 ## Ignore logs and temp files
 *.log
 *.tmp
+/node_modules/

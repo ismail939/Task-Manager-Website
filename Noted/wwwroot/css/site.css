@@ -212,3 +212,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     gap: 20px;
   }
 }
+
+.navbar .nav-link.active{
+  color: #f8b440;
+    /* background-color: #fff; */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
