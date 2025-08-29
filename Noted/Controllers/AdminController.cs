@@ -95,4 +95,42 @@ public class AdminController : Controller
         }
         return View(blogPost);
     }
+    [HttpPost]
+    [Route("blogpost/image/upload")]
+    public IActionResult UploadImage([FromForm]IFormFile image)
+    {
+        Console.WriteLine("Received image upload request");
+        if (image == null || image.Length == 0)
+        {
+            return BadRequest("No image uploaded.");
+        }
+        var extension = Path.GetExtension(image.FileName).ToLower();
+        Console.WriteLine($"Uploaded file: {image.FileName}, Extension: {extension}, Length: {image.Length}");
+
+        // Allowed extensions
+        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+
+        if (!allowedExtensions.Contains(extension))
+        {
+            Console.WriteLine("❌ Unsupported file type detected.");
+            return BadRequest("Unsupported file type");
+        }
+
+        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+        if (!Directory.Exists(uploadsFolder))
+            Directory.CreateDirectory(uploadsFolder);
+
+        var fileName = Guid.NewGuid().ToString() + extension;
+        var filePath = Path.Combine(uploadsFolder, fileName);
+
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            image.CopyTo(stream);
+        }
+
+        Console.WriteLine($"✅ File saved to {filePath}");
+
+        var fileUrl = $"/images/{fileName}";
+        return Ok(new { url = fileUrl });
+    }
 }

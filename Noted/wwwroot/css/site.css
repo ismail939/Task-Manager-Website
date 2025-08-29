@@ -1,3 +1,4 @@
+
 html {
   font-size: 14px;
 }
@@ -8,7 +9,11 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
@@ -22,17 +27,23 @@ html {
   margin-top: 100px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+.form-floating>.form-control-plaintext::placeholder,
+.form-floating>.form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+.form-floating>.form-control-plaintext:focus::placeholder,
+.form-floating>.form-control:focus::placeholder {
   text-align: start;
 }
+
 .btn-classy {
-  background-color: white;  /* Dark charcoal */
-  color: rgb(53, 59, 114);;             /* Light text */
+  background-color: white;
+  /* Dark charcoal */
+  color: rgb(53, 59, 114);
+  ;
+  /* Light text */
   border: 1px solid white;
   padding: 0.6rem 1.2rem;
   font-weight: 500;
@@ -48,15 +59,15 @@ html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#imgRoom  {
-    width: 900px;
-    height: 700px;
-    object-fit: fill;
-    margin: 0 auto; 
-        object-position: center bottom;
-  }
-  
-  #elegantCarousel {
+#imgRoom {
+  width: 900px;
+  height: 700px;
+  object-fit: fill;
+  margin: 0 auto;
+  object-position: center bottom;
+}
+
+#elegantCarousel {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -70,10 +81,12 @@ html {
   margin: 0;
 }
 
-.carousel-control-prev, .carousel-control-next {
-     width: 5%;
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
 
-  background-color: transparent; /* no ugly block */
+  background-color: transparent;
+  /* no ugly block */
   top: 0;
   bottom: 0;
 }
@@ -83,76 +96,80 @@ html {
   background-size: 100% 100%;
   width: 30px;
   height: 30px;
-  
+
 }
 
 
 
-   .image-overlay-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-  }
+.image-overlay-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-  .image-overlay-container:hover #imgRoom {
-    filter: brightness(60%);
-  }
+.image-overlay-container:hover #imgRoom {
+  filter: brightness(60%);
+}
 
-  .hover-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
+.hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-  .image-overlay-container:hover .hover-button {
-    opacity: 1;
-  }
+.image-overlay-container:hover .hover-button {
+  opacity: 1;
+}
 
-  #img_btn {
-    padding: 10px 24px;
-    font-size: 1rem;
-  }
+#img_btn {
+  padding: 10px 24px;
+  font-size: 1rem;
+}
 
-    .card-link {
-      text-decoration: none;
-    }
-  
-    .card-link .card {
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-  
-    .card-link:hover .card {
-      transform: translateY(-3px);
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
-    }
+.card-link {
+  text-decoration: none;
+}
 
-    .navbar .navbar-nav .nav-link {
-    transition: all 0.1s ease;
+.card-link .card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-link:hover .card {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.navbar .navbar-nav .nav-link {
+  transition: all 0.1s ease;
 }
 
 .navbar .nav-link:hover {
-    color: #f8b440;
-    /* background-color: #fff; */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* glow effect */
-    transform: translateY(-2px); /* slight offset upward */
+  color: #f8b440;
+  /* background-color: #fff; */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  /* glow effect */
+  transform: translateY(-2px);
+  /* slight offset upward */
 }
 
 .pagebody {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 
 
 /* Adding a subtle box-shadow */
-.form-select:focus, .input-group input:focus {
+.form-select:focus,
+.input-group input:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Optional: Add icons inside dropdown */
-input[type="date"], .form-select {
+input[type="date"],
+.form-select {
   font-size: 16px;
   height: 50px;
 }
@@ -162,13 +179,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #fff;
   border: none;
 }
+
 /* Ensure the button group is using 100% width and has no constricting styles */
 .btn-group {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between; /* Distribute space between elements */
+  justify-content: space-between;
+  /* Distribute space between elements */
 }
 
 /* Label Styling */
@@ -176,11 +195,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 16px;
   font-weight: bold;
   display: block;
-  margin-bottom: 5px; /* Space between label and input */
+  margin-bottom: 5px;
+  /* Space between label and input */
 }
 
 /* Date Picker and Select Styling */
-.input-group-text{
+.input-group-text {
   background-color: #f1f1f1;
   border-radius: 0.25rem;
   padding: 0.75rem;
@@ -188,15 +208,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Input Fields */
- .form-control, .form-select {
-  width: 100%; /* Ensure select takes up 100% width */
+.form-control,
+.form-select {
+  width: 100%;
+  /* Ensure select takes up 100% width */
   font-size: 16px;
-  height: 40px; /* Set a consistent height */
-  border: 1px solid #ccc; /* Border for visual clarity */
+  height: 40px;
+  /* Set a consistent height */
+  border: 1px solid #ccc;
+  /* Border for visual clarity */
 }
 
 /* Adding subtle box-shadow on focus */
-.input-group input:focus, .form-select:focus {
+.input-group input:focus,
+.form-select:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -213,8 +238,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-.navbar .nav-link.active{
+.navbar .nav-link.active {
   color: #f8b440;
-    /* background-color: #fff; */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  /* background-color: #fff; */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }

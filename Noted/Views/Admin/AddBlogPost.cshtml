@@ -3,39 +3,102 @@
     Layout = "~/Views/Shared/_Layout admin.cshtml";
 }
 
-<form asp-action="Create" method="post" enctype="multipart/form-data" style="margin-top: 100px;">
-    <div class="mb-3">
-        <label  class="form-label">Title</label>
-        <input class="form-control" />
+<form asp-action="Create" method="post" enctype="multipart/form-data" style="margin-top: 50px;">
+
+    <div class="form-floating m-3">
+        <input type="text" class="form-control w-50" id="title" name="Title" placeholder="" required>
+        <label for="title">Title</label>
     </div>
 
-    <div class="mb-3">
-        <label  class="form-label"></label>
+
+    <div class="m-3">
+        <label class="form-label"></label>
 
         <!-- Quill Editor -->
         <div id="editor" style="height: 300px;"></div>
 
         <!-- Hidden field for storing HTML content -->
-        <input type="hidden"  id="Content" />
+        <input type="hidden" id="Content" />
     </div>
-    <button type="submit" class="btn btn-primary">Publish</button>
+    <button type="submit" class="btn btn-primary m-3">Post</button>
 </form>
 
 @section Scripts {
     <script>
         var quill = new Quill('#editor', {
             theme: 'snow',
-            placeholder: 'Write your blog here...',
+            placeholder: 'Start typing ...',
             modules: {
-                toolbar: [
-                    [{ 'header': [1, 2, 3, false] }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                    ['link', 'image'],
-                    ['clean']
-                ]
+                toolbar: {
+                    container: [
+                        [{ 'header': [1, 2, 3, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        ['link', 'image'],
+                        ['clean']],
+                    handlers: {
+                        image: imageHandler
+                    }
+                }
             }
         });
+        // Toolbar button upload
+        function imageHandler() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+
+            input.onchange = () => {
+                const file = input.files[0];
+                if (file) {
+                    console.log("Uploading", file);
+                    uploadImage(file);
+                }
+            };
+        }
+
+        // Handle pasted/dropped images
+        quill.getModule('clipboard').addMatcher('img', (node, delta) => {
+            if (node.src.startsWith('data:')) {
+                // Convert base64 to file and upload
+                const file = dataURLtoFile(node.src, 'pasted.png');
+                uploadImage(file);
+                return new Delta(); // Prevent inserting base64
+            }
+            return delta;
+        });
+
+        // Upload to backend and insert URL
+        function uploadImage(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/blogpost/image/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(result => {
+                    const range = quill.getSelection(true);
+                    quill.insertEmbed(range.index, 'image', result.url);
+                    quill.setSelection(range.index + 1);
+                })
+                .catch(err => console.error(err));
+        }
+
+        // Helper: convert base64 → File
+        function dataURLtoFile(dataUrl, filename) {
+            const arr = dataUrl.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, { type: mime });
+        }
 
         // Copy Quill HTML content to hidden input before form submit
         document.querySelector('form').onsubmit = function () {
