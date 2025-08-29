@@ -1,97 +1,216 @@
 @{
-    ViewData["Title"] = "Room";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewData["Title"] = "Room";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid d-flex justify-content-center pagebody">
- <!-- Bootstrap Carousel -->
-    <div id="elegantCarousel" class="carousel slide carousel-fade mt-5" data-bs-ride="carousel" style="width: 1000px; ">
-        <div class="carousel-inner g-0">
-            <div class="carousel-item">
-                <img src="/images/img6.jpg" class="w-100 rounded" alt="Photo 1">
-            </div>
-            <div class="carousel-item p-0 active">
-                <img src="/images/img5.jpg" class="w-100 rounded" alt="Photo 1">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/rooms1.jpg" class="w-100 rounded" alt="Photo 1">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/rooms2.jpg" class="w-100 rounded" alt="Photo 1">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/rooms3.jpg" class="w-100 rounded" alt="Photo 2">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/img3.jpg" class="w-100 rounded" alt="Photo 3">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/img4.jpg" class=" w-100 rounded" alt="Photo 4">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/markeb.jpg" class=" w-100 rounded" alt="Photo 5">
-            </div>
-        </div>
-
-        <!-- Optional Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#elegantCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#elegantCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-
-        <!-- Optional Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="4"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="5"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="6"></button>
-            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="7"></button>
-            
-        </div>
-    </div>
-    <div class="container mt-5">
-        <h3 class=" mb-3">Room Booking</h3>
-        
-  <div class="btn-group" role="group" aria-label="Date selection group" style="width: 100%;">
-
-    <!-- Arrival Date Label and Dropdown -->
-    <div class="mb-3">
-      <label for="arrivalDate" class="form-label">Check-in</label>
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
-        <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date">
+<div class="container-fluid d-flex justify-content-center gap-0.5 pagebody">
+  <!-- Bootstrap Carousel -->
+  <div id="elegantCarouselRoom" class="carousel slide carousel-fade mt-5" style="width: 1000px;">
+    <div class="carousel-inner g-0">
+      <div class="carousel-item active" data-title="Single" data-long-desc=''
+        data-desc="with prices ranging from 500 EGP to 6000 EGP per night.">
+        <img src="/images/img6.jpg" class="w-100 rounded" alt="Photo 1">
       </div>
-    </div>
 
-    <!-- Departure Date Label and Dropdown -->
-    <div class="mb-3">
-      <label for="departureDate" class="form-label">Check-out</label>
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
-        <input type="date" class="form-control" id="departureDate" placeholder="Select Departure Date">
+      <div class="carousel-item p-0" data-title="Double" data-long-desc=''
+        data-desc="with prices ranging from 600 EGP to 6500 EGP per night.">
+        <img src="/images/doubleRoom.jpg" class="w-100 rounded" alt="Photo 2">
       </div>
+
+      <div class="carousel-item" data-title="Family Suite" data-long-desc=''
+        data-desc="with prices ranging from 1100 EGP to 8000 EGP per night.">
+        <img src="/images/rooms1.jpg" class="w-100 rounded" alt="Photo 3">
+      </div>
+
+      <div class="carousel-item" data-title="Duplex" data-long-desc='' data-desc="2300 EGP per night.">
+        <img src="/images/rooms3.jpg" class="w-100 rounded" alt="Photo 4">
+      </div>
+
+      <!-- ...continue for others -->
     </div>
 
-    <!-- Room Type Label and Dropdown -->
-    <div class="mb-3">
-      <label for="roomType" class="form-label">Room Type</label>
-      <select class="form-select" id="roomType" aria-label="Room Type">
-        <option selected>Select Room Type</option>
-        <option value="1">Single Room</option>
-        <option value="2">Double Room</option>
-        <option value="3">Suite</option>
-      </select>
+    <!-- Optional Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Optional Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#elegantCarouselRoom" data-bs-slide-to="3"></button>
     </div>
-    <div class="mb-3">
-    <button type="button" class="btn btn-primary w-100">Book Now</button>
   </div>
+  <div id="carousel-info"
+    class="mt-5 p-3 border rounded bg-light fs-1 d-flex flex-column justify-content-center align-items-center"
+    style="max-width: 1000px;">
+    <p id="room-title" class="titleFont text-center">Room Title</p>
+    <p id="room-desc" class="descriptionFont text-center">Room description will appear here.</p>
+    <div class="btn btn-white">Hover to learn more..</div>
+    <div id="info-overlay" class="info-box d-none"></div>
+  </div>
+</div>
+<div class="container mt-5">
+  <h3 class=" mb-3">Room Booking</h3>
+
+  <div class="container" role="group" aria-label="Date selection group" style="width: 100%;">
+    <div class="row">
+      <div class="col-2 border-end pe-3">
+        <!-- Arrival Date Label and Dropdown -->
+        <div class="mb-3">
+          <label for="arrivalDate" class="form-label">Check-in</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+            <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date">
+          </div>
+        </div>
+        <!-- Departure Date Label and Dropdown -->
+        <div class="mb-3">
+          <label for="departureDate" class="form-label">Check-out</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+            <input type="date" class="form-control" id="departureDate" placeholder="Select Departure Date">
+          </div>
+        </div>
+      </div>
+      <div class="col-2 border-end pe-3">
+        <div class="mb-3">
+          <label for="roomType" class="form-label">Client Type</label>
+          <select class="form-select" id="roomType" aria-label="Room Type">
+            <option selected>Select Client Type</option>
+            <option value="1">Member</option>
+            <option value="2">Navy Officer</option>
+            <option value="3">Armed Forces Officer</option>
+            <option value="4">Civilian</option>
+            <option value="5">Foriegner</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2 border-end pe-3">
+        <!-- Room Type Label and Dropdown -->
+        <div class="mb-3">
+          <label for="roomType" class="form-label">Room Type</label>
+          <select class="form-select" id="roomType" aria-label="Room Type">
+            <option selected>Select Room Type</option>
+            <option value="1">Single Room</option>
+            <option value="2">Double Room</option>
+            <option value="3">Family Suite</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2 border-end pe-3">
+        <div class="mb-3">
+          <label for="additionalBeds" class="form-label">Additional Beds</label>
+          <input type="number" id="additionalBeds" class="form-control" name="additionalBeds" placeholder="add beds"
+            min="1" max="5">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3 mt-3">
+          <span>Total: 4000</span> <br>
+          <button type="button" class="btn btn-primary">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
 </div>
 
 
-    </div>
+@section Scripts {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.querySelector('#elegantCarouselRoom');
+      const titleEl = document.getElementById('room-title');
+      const descEl = document.getElementById('room-desc');
+
+
+      function updateInfoBox() {
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        const title = activeItem.getAttribute('data-title') || 'Room Title';
+        const desc = activeItem.getAttribute('data-desc') || 'Description not available.';
+        titleEl.textContent = title;
+        descEl.textContent = desc;
+        if (title === "Single") {
+          document.getElementById('info-overlay').innerHTML = `<ul>
+         <li>1 single bed</li>
+         <li>Private bathroom</li>
+         <li>Included breakfast</li>
+         <li>Nile View</li>
+         <li>Room Size 42m²</li>
+       </ul>`;
+        }
+        else if (title === "Double") {
+          document.getElementById('info-overlay').innerHTML = `<ul>
+         <li>2 single beds or 1 large bed</li>
+         <li>2 adults</li>
+         <li>Private bathroom</li>
+         <li>Included breakfast</li>
+         <li>Nile View</li>
+         <li>Room Size 42m²</li>
+       </ul>`;
+        }
+        else if (title === "Family Suite") {
+          document.getElementById('info-overlay').innerHTML = `<ul>
+         <li>2 bedrooms with lounge</li>
+         <li>4 single beds</li>
+         <li>Private bathroom</li>
+         <li>Included breakfast</li>
+         <li>City View</li>
+         <li>Room Size 65m²</li>
+       </ul>`;
+        }
+        else if (title === "Duplex") {
+          document.getElementById('info-overlay').innerHTML = `<ul>
+         <li>1 bedroom with lounge</li>
+         <li>1 large bed</li>
+         <li>2 adults</li>
+         <li>Private bathroom</li>
+         <li>Included breakfast</li>
+         <li>Nile View</li>
+       </ul>`;
+        }
+      }
+
+      // Set initial content
+      updateInfoBox();
+
+      // Update on slide
+      carousel.addEventListener('slid.bs.carousel', updateInfoBox);
+      const carouselElement = document.querySelector('#elegantCarouselRoom');
+      const carouselInstance = new bootstrap.Carousel(carouselElement, {
+        interval: 5000,
+        ride: 'carousel',
+        wrap: true
+      });
+      const infoBox = document.getElementById('info-overlay');
+      const carouselInfo = document.getElementById('carousel-info');
+
+
+      carouselInfo.addEventListener('mouseenter', function () {
+        const carousel = document.querySelector('#elegantCarouselRoom');
+        infoBox.classList.remove('d-none');
+        carouselInstance.pause();
+
+      });
+
+      carouselInfo.addEventListener('mouseleave', function () {
+        const carousel = document.querySelector('#elegantCarouselRoom');
+        infoBox.classList.add('d-none');
+        carouselInstance.cycle();
+      });
+
+    });
+
+
+
+  </script>
+
+}

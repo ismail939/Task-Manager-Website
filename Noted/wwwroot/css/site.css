@@ -59,7 +59,7 @@ html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#imgRoom {
+.imgRoom {
   width: 900px;
   height: 700px;
   object-fit: fill;
@@ -67,18 +67,58 @@ html {
   object-position: center bottom;
 }
 
-#elegantCarousel {
+#elegantCarouselHome {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
+#elegantCarouselRoom {
+  width: 600px;
+  max-width: 1000px;
+  margin: 0;
+}
+#carousel-info {
+  width: 300px;
+}
 
-#elegantCarousel img {
+#elegantCarouselHome img {
   width: 100%;
   height: 700px;
   object-fit: cover;
   display: block;
   margin: 0;
+}
+#elegantCarouselRoom img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+.restaurantImg{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: inline-block;
+  margin: 0;
+}
+
+.titleFont {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.descriptionFont {
+  font-family: ui-rounded;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.italicFont {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
 }
 
 .carousel-control-prev,
@@ -242,4 +282,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #f8b440;
   /* background-color: #fff; */
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.info-box {
+  
+  
+  background-color: rgba(226, 226, 226, 0.9);
+  color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: medium;
+  font-style: italic;
+  font-family: 'system-ui', serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }

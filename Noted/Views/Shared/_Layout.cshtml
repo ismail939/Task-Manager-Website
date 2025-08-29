@@ -13,79 +13,85 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <!-- Quill CSS -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Add this inside <head> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
-    
-<nav class="navbar navbar-expand-md navbar-dark fixed-top p-1" style="background-color: #241b46;">
-    <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="/images/logo1.png" alt="logo" style="height:60px; width:60px;">
-        </a>
+<body class="d-flex flex-column min-vh-100">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-            aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top p-1" style="background-color: #241b46;">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/images/logo1.png" alt="logo" style="height:60px; width:60px;">
+            </a>
 
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
                         <a href="/"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/" ? "active" : "")">Home</a>
-                </li>
-                <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a href="/news"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/news" ? "active" : "")">News</a>
-                </li>
-                <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a href="/roompage"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/roompage" ? "active" : "")">Rooms</a>
-                </li>
-                <li class="nav-item">
-                        <a href="#"
+                    </li>
+                    <li class="nav-item">
+                        <a href="/restaurants"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/restaurants" ? "active" : "")">Restaurant</a>
-                </li>
-                <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a href="#"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/halls" ? "active" : "")">Halls</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/login" class="nav-link">Admin</a>
-                </li>
-            </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link">Admin</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-    <div class="w-100 m-0 p-0">
-        <main role="main" class="w-100 m-0 p-0">
+    </nav>
+    @* <div class="w-100 m-0 p-0"> *@
+        <main role="main" class="w-100 m-0 p-0 flex-grow-1">
             @RenderBody()
         </main>
-    </div>
+    @* </div> *@
 
-<footer class=" text-white py-4 mt-5" style="background-color: #241b46;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5 class="m-1">Contact</h5>
-        <p class="m-1">Montazah Al Giza, Zamalek, Cairo Governorate</p>
-        <p class="m-1">02 27351399</p>
-        <p class="m-1">info@hotel.com</p>
-      </div>
-     
-      <div class="col-md-4">
-        <h5 class="m-1">Links</h5>
-        <a href="https://www.facebook.com/fleetclubelgezirah/" target="_blank" class="text-white me-2">Facebook</a> <br>
-        <a href="https://www.instagram.com/fleetclubelgezirah/?hl=en" target="_blank" class="text-white me-2">Instagram</a> <br>
-        <a href="/review" target="_blank" class="text-white me-2">Review</a>
-      </div>
-    </div>
-    <hr class="bg-light">
-    <div class="text-center">
-      <small>© 2025 Fleet Club Hotel ElGezirah. All rights reserved.</small>
-    </div>
-  </div>
-</footer>
+    <footer class=" text-white py-4 mt-5" style="background-color: #241b46;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="m-1">Contact</h5>
+                    <p class="m-1">Montazah Al Giza, Zamalek, Cairo Governorate</p>
+                    <p class="m-1">02 27351399</p>
+                    <p class="m-1">info@hotel.com</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="m-1">Links</h5>
+                    <a href="https://www.facebook.com/fleetclubelgezirah/" target="_blank"
+                        class="text-white me-2">Facebook</a> <br>
+                    <a href="https://www.instagram.com/fleetclubelgezirah/?hl=en" target="_blank"
+                        class="text-white me-2">Instagram</a> <br>
+                    <a href="/review" target="_blank" class="text-white me-2">Review</a>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <small>© 2025 Fleet Club Hotel ElGezirah. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
 
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
