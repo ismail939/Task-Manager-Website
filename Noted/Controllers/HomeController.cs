@@ -45,6 +45,18 @@ public class HomeController : Controller
         return View("Restaurants");
     }
     [HttpGet]
+    [Route("/halls")]
+    public IActionResult HallsPage()
+    {
+        return View("Halls");
+    }
+    [HttpGet]
+    [Route("/about")]
+    public IActionResult AboutPage()
+    {
+        return View("About");
+    }
+    [HttpGet]
     [Route("/blogposts")]
     public IActionResult BlogPosts()
     {

@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "About Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var hafalatPhone = "+201092209699"; // No + or spaces
+    var receptionPhone = "+201027229804"; // No + or spaces
+    var message = "Hello, I’d like to know more about your services.";
+    var encodedMessageHafalat = System.Net.WebUtility.UrlEncode(message);
+    var encodedMessageReception = System.Net.WebUtility.UrlEncode(message);
+    var whatsappUrlHafalat = $"https://wa.me/{hafalatPhone}?text={encodedMessageHafalat}";
+    var whatsappUrlReception = $"https://wa.me/{receptionPhone}?text={encodedMessageReception}";
+}
+<div class="container pagebody mb-5">
+
+<h3>Contact Us</h3>
+<p><strong>Phone:</strong> 02 27351399</p>
+
+<div class="mb-3">
+    <a href="@whatsappUrlReception" target="_blank" class="p-4" style="text-decoration: none;">
+        <button class="btn btn-success aboutButton">Contact Reception via WhatsApp</button>
+    </a>
+    <a href="@whatsappUrlHafalat" target="_blank" class="ms-2" style="text-decoration: none;">
+        <button class="btn btn-primary aboutButton">Contact 7afalat via WhatsApp</button>
+    </a>
+</div>
+
+<h3>Location</h3>
+<div style="width: 100%; max-width: 600px; height: 400px; border: 1px solid #ccc;">
+  <iframe
+    src="https://maps.google.com/maps?hl=en&q=Fleet+Club+El+Gezirah,+Zamalek,+Cairo,+Egypt&ie=UTF8&hq=&hnear=&output=embed"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
+<div class="container mt-3">
+    <a href="https://www.google.com/travel/search?q=FLEET%20CLUB%20EL%20GEZIRAH&g2lb=4899568%2C4899570%2C4965990%2C4969803%2C72302247%2C72317059%2C72414906%2C72471280%2C72472051%2C72485658%2C72560029%2C72573224%2C72616120%2C72647020%2C72686036%2C72760082%2C72803964%2C72832976%2C72882230%2C72887412%2C72958624%2C72959983%2C72990342%2C73059275%2C73064764%2C73071754%2C73076417%2C73080244&hl=en-EG&gl=eg&ssta=1&ts=CAEaKwopEicyJTB4MTQ1ODQxMDAwOGRlZGQxNToweGFkNjI0YWMwOTZjMjE4Yjc&qs=CAEyFENnc0l0N0dJdG9uWWtyR3RBUkFCOAI&ap=ugEHcmV2aWV3cw&ictx=111&ved=0CAAQ5JsGahcKEwiQ9brBmrWPAxUAAAAAHQAAAAAQBQ"
+                        target="_blank" class="buttonReview">Review</a>
+</div>
+</div>

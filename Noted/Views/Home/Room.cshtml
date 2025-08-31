@@ -51,7 +51,7 @@
     <p id="room-title" class="titleFont text-center">Room Title</p>
     <p id="room-desc" class="descriptionFont text-center">Room description will appear here.</p>
     <div class="btn btn-white">Hover to learn more..</div>
-    <div id="info-overlay" class="info-box d-none"></div>
+    <div id="info-overlay" class="info-box"></div>
   </div>
 </div>
 <div class="container mt-5">
@@ -196,14 +196,14 @@
 
       carouselInfo.addEventListener('mouseenter', function () {
         const carousel = document.querySelector('#elegantCarouselRoom');
-        infoBox.classList.remove('d-none');
+        infoBox.classList.add('visible');
         carouselInstance.pause();
 
       });
 
       carouselInfo.addEventListener('mouseleave', function () {
         const carousel = document.querySelector('#elegantCarouselRoom');
-        infoBox.classList.add('d-none');
+        infoBox.classList.remove('visible');
         carouselInstance.cycle();
       });
 

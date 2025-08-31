@@ -80,6 +80,9 @@ html {
 #carousel-info {
   width: 300px;
 }
+#halls-info {
+  width: 600px;
+}
 
 #elegantCarouselHome img {
   width: 100%;
@@ -285,8 +288,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .info-box {
-  
-  
   background-color: rgba(226, 226, 226, 0.9);
   color: black;
   padding: 10px 15px;
@@ -295,4 +296,61 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-style: italic;
   font-family: 'system-ui', serif;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+#info-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease, visibility 0.3s;
+}
+
+#info-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.button1{
+  background-color: #ffffff;
+  color: rgb(54, 46, 90);
+  border: 2px solid #212455;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonReview{
+  background-color: #212455;
+  color: #ffffff;
+  border: 2px solid #212455;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 12px;
+}
+.buttonReview:hover{
+  background-color: white;
+  color: #212455;
+  border: 2px solid #212455;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.aboutButton:hover{
+  background-color: white;
+  color: #212455;
+  border: 2px solid #212455;
+  padding: 5px 12px;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 10px;
 }
