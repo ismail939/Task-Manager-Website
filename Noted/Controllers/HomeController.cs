@@ -30,7 +30,8 @@ public class HomeController : Controller
     [Route("/roompage")]
     public IActionResult RoomPage()
     {
-        return View("Room");
+        List<InfoMoney> prices = _context.InfoMonies.ToList();
+        return View("Room", prices);
     }
     [HttpGet]
     [Route("/news")]

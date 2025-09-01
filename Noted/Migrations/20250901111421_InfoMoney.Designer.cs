@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Noted.Data;
 
@@ -11,9 +12,11 @@ using Noted.Data;
 namespace Noted.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250901111421_InfoMoney")]
+    partial class InfoMoney
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,13 +133,7 @@ namespace Noted.Migrations
                     b.Property<double>("AdditionalBedPrice")
                         .HasColumnType("float");
 
-                    b.Property<double>("DoubleRoomPriceFC1")
-                        .HasColumnType("float");
-
-                    b.Property<double>("DoubleRoomPriceFC2")
-                        .HasColumnType("float");
-
-                    b.Property<double>("DuplexPrice")
+                    b.Property<double>("DoubleRoomPrice")
                         .HasColumnType("float");
 
                     b.Property<double>("FamilySuitePrice")
@@ -146,10 +143,7 @@ namespace Noted.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<double>("SingleRoomPriceFC1")
-                        .HasColumnType("float");
-
-                    b.Property<double>("SingleRoomPriceFC2")
+                    b.Property<double>("SingleRoomPrice")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

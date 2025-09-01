@@ -1,7 +1,12 @@
+@using System.Text.Json
+@model IEnumerable<Noted.Models.InfoMoney>;
 @{
   ViewData["Title"] = "Rooms";
   Layout = "~/Views/Shared/_Layout.cshtml";
+  var prices = Model.ToList();
+    Console.WriteLine(prices);
 }
+
 
 <div class="container-fluid d-flex justify-content-center gap-0.5 pagebody">
   <!-- Bootstrap Carousel -->
@@ -50,7 +55,7 @@
     style="max-width: 1000px;">
     <p id="room-title" class="titleFont text-center">Room Title</p>
     <p id="room-desc" class="descriptionFont text-center">Room description will appear here.</p>
-    <div class="btn btn-white">Hover to learn more..</div>
+    <div class="btn btn-white">Hover for more details..</div>
     <div id="info-overlay" class="info-box"></div>
   </div>
 </div>
@@ -65,7 +70,7 @@
           <label for="arrivalDate" class="form-label">Check-in</label>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
-            <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date">
+            <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date" min="@DateTime.Now.ToString("yyyy-MM-dd")">
           </div>
         </div>
         <!-- Departure Date Label and Dropdown -->
@@ -79,14 +84,14 @@
       </div>
       <div class="col-2 border-end pe-3">
         <div class="mb-3">
-          <label for="roomType" class="form-label">Client Type</label>
-          <select class="form-select" id="roomType" aria-label="Room Type">
-            <option selected>Select Client Type</option>
+          <label for="clientType" class="form-label">Client Type</label>
+          <select class="form-select" id="clientType" aria-label="Client Type">
+            @* <option selected>Select Client Type</option> *@
             <option value="1">Member</option>
             <option value="2">Navy Officer</option>
             <option value="3">Armed Forces Officer</option>
             <option value="4">Civilian</option>
-            <option value="5">Foriegner</option>
+            <option value="5">Foreigner</option>
           </select>
         </div>
       </div>
@@ -95,10 +100,22 @@
         <div class="mb-3">
           <label for="roomType" class="form-label">Room Type</label>
           <select class="form-select" id="roomType" aria-label="Room Type">
-            <option selected>Select Room Type</option>
+            @* <option selected>Select Room Type</option> *@
             <option value="1">Single Room</option>
             <option value="2">Double Room</option>
             <option value="3">Family Suite</option>
+            <option value="4">Duplex</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2 border-end pe-3">
+        <!-- hotel Type Label and Dropdown -->
+        <div class="mb-3">
+          <label for="hotel" class="form-label">Hotel</label>
+          <select class="form-select" id="hotel" aria-label="Hotel">
+            @* <option selected>Select Hotel </option> *@
+            <option value="1">Main Hotel</option>
+            <option value="2">Extension</option>
           </select>
         </div>
       </div>
@@ -110,12 +127,12 @@
         </div>
       </div>
       <div class="col-2">
-        <div class="mb-3 mt-3">
-          <span>Total: 4000</span> <br>
-          <button type="button" class="btn btn-primary">Book Now</button>
+        <div class="mb-3 mt-3"><br>
+          <button type="button" class="btn btn-primary" id="calcBtn">Calculate</button> <br>
         </div>
       </div>
     </div>
+    <div class="w-100 border border-2 border-warning text-center titleFont d-none" id="total"></div>
 
 
 
@@ -140,42 +157,42 @@
         descEl.textContent = desc;
         if (title === "Single") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-         <li>1 single bed</li>
-         <li>Private bathroom</li>
-         <li>Included breakfast</li>
-         <li>Nile View</li>
-         <li>Room Size 42m²</li>
-       </ul>`;
+           <li>1 single bed</li>
+           <li>Private bathroom</li>
+           <li>Included breakfast</li>
+           <li>Nile View</li>
+           <li>Room Size 42m²</li>
+         </ul>`;
         }
         else if (title === "Double") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-         <li>2 single beds or 1 large bed</li>
-         <li>2 adults</li>
-         <li>Private bathroom</li>
-         <li>Included breakfast</li>
-         <li>Nile View</li>
-         <li>Room Size 42m²</li>
-       </ul>`;
+           <li>2 single beds or 1 large bed</li>
+           <li>2 adults</li>
+           <li>Private bathroom</li>
+           <li>Included breakfast</li>
+           <li>Nile View</li>
+           <li>Room Size 42m²</li>
+         </ul>`;
         }
         else if (title === "Family Suite") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-         <li>2 bedrooms with lounge</li>
-         <li>4 single beds</li>
-         <li>Private bathroom</li>
-         <li>Included breakfast</li>
-         <li>City View</li>
-         <li>Room Size 65m²</li>
-       </ul>`;
+           <li>2 bedrooms with lounge</li>
+           <li>4 single beds</li>
+           <li>Private bathroom</li>
+           <li>Included breakfast</li>
+           <li>City View</li>
+           <li>Room Size 65m²</li>
+         </ul>`;
         }
         else if (title === "Duplex") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-         <li>1 bedroom with lounge</li>
-         <li>1 large bed</li>
-         <li>2 adults</li>
-         <li>Private bathroom</li>
-         <li>Included breakfast</li>
-         <li>Nile View</li>
-       </ul>`;
+           <li>1 bedroom with lounge</li>
+           <li>1 large bed</li>
+           <li>2 adults</li>
+           <li>Private bathroom</li>
+           <li>Included breakfast</li>
+           <li>Nile View</li>
+         </ul>`;
         }
       }
 
@@ -209,6 +226,226 @@
 
     });
 
+    document.getElementById('arrivalDate').addEventListener('change', function () {
+      const arrivalDate = new Date(this.value);
+      const departureInput = document.getElementById('departureDate');
+      departureInput.min = this.value; // Set minimum to arrival date
+      // If departure date is before arrival date, reset it
+      if (new Date(departureInput.value) < arrivalDate) {
+        departureInput.value = '';
+      }
+    });
+
+    document.getElementById('roomType').addEventListener('change', function () {
+      const roomType = this.value;
+      if (roomType === "3") {
+        document.getElementById("hotel").value = "1";
+        document.getElementById("hotel").disabled = true;
+      }
+      else if(roomType === "4") {
+        document.getElementById("hotel").value = "2";
+        document.getElementById("hotel").disabled = true;
+      }
+      else {
+        document.getElementById("hotel").disabled = false;
+      }
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const arrivalDate = new Date(document.getElementById('arrivalDate').value);
+      const departureDate = new Date(document.getElementById('departureDate').value);
+      const clientType = document.getElementById('clientType').value;
+      const roomType = document.getElementById('roomType').value;
+      const hotel = document.getElementById('hotel').value;
+      const additionalBeds = parseInt(document.getElementById('additionalBeds').value) || 0;
+      let roomPrice = 0;
+      let list = @Html.Raw(JsonSerializer.Serialize(prices));
+      if (clientType === "1") { // Member
+        let info = list[0];
+        if(hotel === "1") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "3") { // Family Suite
+            roomPrice = info.FamilySuitePrice;
+          }
+
+        } else if(hotel === "2") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "4") { // duplex 
+            roomPrice = info.DuplexPrice;
+          }
+        }
+        // Additional bed cost
+        let additionalBedCost = additionalBeds * info.AdditionalBedPrice;
+
+        // Calculate number of nights
+        const timeDiff = departureDate - arrivalDate;
+        const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (isNaN(nights) || nights <= 0) {
+          alert("Please select valid arrival and departure dates.");
+          return;
+        }
+
+        // Total cost calculation
+        const totalCost = (roomPrice + additionalBedCost) * nights;
+        document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
+        document.getElementById('total').classList.remove('d-none');
+      }
+      else if (clientType === "2") {
+        let info = list[1];
+        if(hotel === "1") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "3") { // Family Suite
+            roomPrice = info.FamilySuitePrice;
+          }
+
+        } else if(hotel === "2") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "4") { // duplex 
+            roomPrice = info.DuplexPrice;
+          }
+        }
+        // Additional bed cost
+        let additionalBedCost = additionalBeds * info.AdditionalBedPrice;
+
+        // Calculate number of nights
+        const timeDiff = departureDate - arrivalDate;
+        const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (isNaN(nights) || nights <= 0) {
+          alert("Please select valid arrival and departure dates.");
+          return;
+        }
+
+        // Total cost calculation
+        const totalCost = (roomPrice + additionalBedCost) * nights;
+        document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
+        document.getElementById('total').classList.remove('d-none');
+      } 
+      else if (clientType === "3") {
+        let info = list[2];
+        if(hotel === "1") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "3") { // Family Suite
+            roomPrice = info.FamilySuitePrice;
+          }
+
+        } else if(hotel === "2") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "4") { // duplex 
+            roomPrice = info.DuplexPrice;
+          }
+        }
+        // Additional bed cost
+        let additionalBedCost = additionalBeds * info.AdditionalBedPrice;
+
+        // Calculate number of nights
+        const timeDiff = departureDate - arrivalDate;
+        const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (isNaN(nights) || nights <= 0) {
+          alert("Please select valid arrival and departure dates.");
+          return;
+        }
+
+        // Total cost calculation
+        const totalCost = (roomPrice + additionalBedCost) * nights;
+        document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
+        document.getElementById('total').classList.remove('d-none');
+      }
+      else if (clientType === "4") {
+        let info = list[3];
+        if(hotel === "1") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "3") { // Family Suite
+            roomPrice = info.FamilySuitePrice;
+          }
+
+        } else if(hotel === "2") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "4") { // duplex 
+            roomPrice = info.DuplexPrice;
+          }
+        }
+        // Additional bed cost
+        let additionalBedCost = additionalBeds * info.AdditionalBedPrice;
+
+        // Calculate number of nights
+        const timeDiff = departureDate - arrivalDate;
+        const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (isNaN(nights) || nights <= 0) {
+          alert("Please select valid arrival and departure dates.");
+          return;
+        }
+
+        // Total cost calculation
+        const totalCost = (roomPrice + additionalBedCost) * nights;
+        document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
+        document.getElementById('total').classList.remove('d-none');
+      }
+      else if (clientType === "5") {
+        let info = list[4];
+        if(hotel === "1") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "3") { // Family Suite
+            roomPrice = info.FamilySuitePrice;
+          }
+
+        } else if(hotel === "2") {
+          if (roomType === "1") { // Single Room
+            roomPrice = info.SingleRoomPriceFC1;
+          } else if (roomType === "2") { // Double Room
+            roomPrice = info.DoubleRoomPriceFC1;
+          } else if (roomType === "4") { // duplex 
+            roomPrice = info.DuplexPrice;
+          }
+        }
+        // Additional bed cost
+        let additionalBedCost = additionalBeds * info.AdditionalBedPrice;
+
+        // Calculate number of nights
+        const timeDiff = departureDate - arrivalDate;
+        const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (isNaN(nights) || nights <= 0) {
+          alert("Please select valid arrival and departure dates.");
+          return;
+        }
+
+        // Total cost calculation
+        const totalCost = (roomPrice + additionalBedCost) * nights;
+        document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
+        document.getElementById('total').classList.remove('d-none');
+      }
+    });
 
 
   </script>
