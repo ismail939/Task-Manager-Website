@@ -4,7 +4,7 @@
   ViewData["Title"] = "Rooms";
   Layout = "~/Views/Shared/_Layout.cshtml";
   var prices = Model.ToList();
-    Console.WriteLine(prices);
+  Console.WriteLine(prices);
 }
 
 
@@ -59,7 +59,7 @@
     <div id="info-overlay" class="info-box"></div>
   </div>
 </div>
-<div class="container mt-5">
+@* <div class="container mt-5">
   <h3 class=" mb-3">Room Booking</h3>
 
   <div class="container" role="group" aria-label="Date selection group" style="width: 100%;">
@@ -70,7 +70,8 @@
           <label for="arrivalDate" class="form-label">Check-in</label>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
-            <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date" min="@DateTime.Now.ToString("yyyy-MM-dd")">
+            <input type="date" class="form-control" id="arrivalDate" placeholder="Select Arrival Date"
+              min="@DateTime.Now.ToString("yyyy-MM-dd")">
           </div>
         </div>
         <!-- Departure Date Label and Dropdown -->
@@ -86,7 +87,7 @@
         <div class="mb-3">
           <label for="clientType" class="form-label">Client Type</label>
           <select class="form-select" id="clientType" aria-label="Client Type">
-            @* <option selected>Select Client Type</option> *@
+           
             <option value="1">Member</option>
             <option value="2">Navy Officer</option>
             <option value="3">Armed Forces Officer</option>
@@ -100,7 +101,7 @@
         <div class="mb-3">
           <label for="roomType" class="form-label">Room Type</label>
           <select class="form-select" id="roomType" aria-label="Room Type">
-            @* <option selected>Select Room Type</option> *@
+            
             <option value="1">Single Room</option>
             <option value="2">Double Room</option>
             <option value="3">Family Suite</option>
@@ -113,7 +114,7 @@
         <div class="mb-3">
           <label for="hotel" class="form-label">Hotel</label>
           <select class="form-select" id="hotel" aria-label="Hotel">
-            @* <option selected>Select Hotel </option> *@
+           
             <option value="1">Main Hotel</option>
             <option value="2">Extension</option>
           </select>
@@ -138,7 +139,7 @@
 
 
   </div>
-</div>
+</div> *@
 
 
 @section Scripts {
@@ -157,42 +158,42 @@
         descEl.textContent = desc;
         if (title === "Single") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-           <li>1 single bed</li>
-           <li>Private bathroom</li>
-           <li>Included breakfast</li>
-           <li>Nile View</li>
-           <li>Room Size 42m²</li>
-         </ul>`;
+             <li>1 single bed</li>
+             <li>Private bathroom</li>
+             <li>Included breakfast</li>
+             <li>Nile View</li>
+             <li>Room Size 42m²</li>
+           </ul>`;
         }
         else if (title === "Double") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-           <li>2 single beds or 1 large bed</li>
-           <li>2 adults</li>
-           <li>Private bathroom</li>
-           <li>Included breakfast</li>
-           <li>Nile View</li>
-           <li>Room Size 42m²</li>
-         </ul>`;
+             <li>2 single beds or 1 large bed</li>
+             <li>2 adults</li>
+             <li>Private bathroom</li>
+             <li>Included breakfast</li>
+             <li>Nile View</li>
+             <li>Room Size 42m²</li>
+           </ul>`;
         }
         else if (title === "Family Suite") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-           <li>2 bedrooms with lounge</li>
-           <li>4 single beds</li>
-           <li>Private bathroom</li>
-           <li>Included breakfast</li>
-           <li>City View</li>
-           <li>Room Size 65m²</li>
-         </ul>`;
+             <li>2 bedrooms with lounge</li>
+             <li>4 single beds</li>
+             <li>Private bathroom</li>
+             <li>Included breakfast</li>
+             <li>City View</li>
+             <li>Room Size 65m²</li>
+           </ul>`;
         }
         else if (title === "Duplex") {
           document.getElementById('info-overlay').innerHTML = `<ul>
-           <li>1 bedroom with lounge</li>
-           <li>1 large bed</li>
-           <li>2 adults</li>
-           <li>Private bathroom</li>
-           <li>Included breakfast</li>
-           <li>Nile View</li>
-         </ul>`;
+             <li>1 bedroom with lounge</li>
+             <li>1 large bed</li>
+             <li>2 adults</li>
+             <li>Private bathroom</li>
+             <li>Included breakfast</li>
+             <li>Nile View</li>
+           </ul>`;
         }
       }
 
@@ -226,7 +227,7 @@
 
     });
 
-    document.getElementById('arrivalDate').addEventListener('change', function () {
+    @* document.getElementById('arrivalDate').addEventListener('change', function () {
       const arrivalDate = new Date(this.value);
       const departureInput = document.getElementById('departureDate');
       departureInput.min = this.value; // Set minimum to arrival date
@@ -445,7 +446,7 @@
         document.getElementById('total').innerText = `Total Cost: ${totalCost} EGP for ${nights} night(s).`;
         document.getElementById('total').classList.remove('d-none');
       }
-    });
+    }); *@
 
 
   </script>
