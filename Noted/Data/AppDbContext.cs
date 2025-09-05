@@ -13,6 +13,7 @@ namespace Noted.Data
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<BlogImage> BlogImages { get; set; }
         public DbSet<InfoMoney> InfoMonies { get; set; }
+        public DbSet<Photo> Photos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<InfoMoney>()

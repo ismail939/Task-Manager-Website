@@ -1,0 +1,63 @@
+@model IEnumerable<Noted.Models.Photo>;
+@{
+    Layout = "~/Views/Shared/_Layout admin.cshtml";
+    ViewData["Title"] = "Admin - Home Photos";
+    List<string> photoUrls = new List<string>
+{
+"/images/imgReception.jpg",
+"/images/img5.jpg",
+"/images/flandara.jpg",
+"/images/img3.jpg",
+"/images/img4.jpg",
+"/images/img3.jpg"
+};
+    var size = photoUrls.Count;
+    var noOfLoops = Math.Ceiling((decimal)size / 5);
+}
+
+<div class="container-fluid w-100 m-3">
+    <h1 class="mb-4">Carousel photos</h1>
+
+    @foreach (var i in Enumerable.Range(0, (int)noOfLoops))
+    {
+        <div class="row m-2 w-100">
+            @{
+                var start = i * 5;
+                var end = Math.Min(5, size - start);
+            }
+            @foreach (var j in Enumerable.Range(start, end))
+            {
+                <div class="col-md-2">
+                    <div class="image-overlay-container mb-4 py-2 mt-1" id="img_container{@j}">
+                        <div class="me-3">
+                            <img src="@photoUrls[j]" class="img-thumbnail"
+                                style="width: 300px; height: 300px; object-fit: fill;" />
+                            <a href="/roompage" class="btn btn-danger hover-button img_btn">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    <button class="btn btn-success">
+        Add New Photo
+    </button>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const containers = document.querySelectorAll('.image-overlay-container');
+
+            containers.forEach(container => {
+                const button = container.querySelector('.img_btn');
+
+                container.addEventListener('click', () => {
+                    container.style.border = '3px solid red';
+                });
+            });
+        });
+    </script>
+}

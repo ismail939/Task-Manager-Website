@@ -171,6 +171,10 @@ html {
   padding: 10px 24px;
   font-size: 1rem;
 }
+.img_btn{
+  padding: 10px 24px;
+  font-size: 1rem;
+}
 
 .card-link {
   text-decoration: none;

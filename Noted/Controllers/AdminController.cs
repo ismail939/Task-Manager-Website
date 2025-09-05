@@ -97,7 +97,7 @@ public class AdminController : Controller
     }
     [HttpPost]
     [Route("blogpost/image/upload")]
-    public IActionResult UploadImage([FromForm]IFormFile image)
+    public IActionResult UploadImage([FromForm] IFormFile image)
     {
         Console.WriteLine("Received image upload request");
         if (image == null || image.Length == 0)
@@ -132,5 +132,18 @@ public class AdminController : Controller
 
         var fileUrl = $"/images/{fileName}";
         return Ok(new { url = fileUrl });
+    }
+    [HttpGet]
+    [Route("admin/photos")]
+    public IActionResult Photos()
+    {
+        return View("Photos");
+    }
+    [HttpGet]
+    [Route("admin/homephotos")]
+    public IActionResult HomePhotos()
+    {
+        var photos = _context.Photos.Where(p => p.Page == "Home").ToList();
+        return View("HomePhotos", photos);
     }
 }
