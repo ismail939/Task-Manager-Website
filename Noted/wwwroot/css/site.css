@@ -95,7 +95,7 @@ html {
   }
   #carousel-info {
     width: 16%;
-    background: linear-gradient(135deg, #fdfbfb, #404063); /* Light gradient */
+    background: linear-gradient(135deg, #fdfbfb, #b9bdd6); /* Light gradient */
     /* Alternative gradients are listed below */
     border-radius: 14px;
     padding: 20px;
@@ -313,7 +313,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   #carousel-info {
     width: 100%;
-    background: linear-gradient(135deg, #fdfbfb, #515883); /* Light gradient */
+    background: linear-gradient(135deg, #fdfbfb, #b9bdd6); /* Light gradient */
     /* Alternative gradients are listed below */
     border-radius: 14px;
     padding: 20px;
