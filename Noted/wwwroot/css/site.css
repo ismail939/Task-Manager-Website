@@ -70,8 +70,7 @@ html {
   margin: 0 auto;
 }
 #elegantCarouselRoom {
-  width: 600px;
-  max-width: 1000px;
+  width: 1000px;
   margin: 0;
 }
 #carousel-info {
@@ -281,6 +280,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 40vh;
     width: 100%;
   }
+  #elegentCarouselRoom {
+    height: 40vh;
+    width: 300px;
+    max-width: 100%;
+    }
+
   .carousel-inner {
     
     width: 100%;
@@ -292,6 +297,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   #elegentCarouselRoom img {
     object-fit: fill;
+    object-position: center bottom;
   }
   .imG {
   width: 100%;
