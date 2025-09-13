@@ -25,18 +25,21 @@
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top p-1" style="background-color: #241b46;">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="/images/logo1.png" alt="logo" style="height:60px; width:60px;">
-            </a>
+        <div class="container-fluid mx-auto">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Button: appears first on xs/sm, second on md+ -->
+            <button class="navbar-toggler d-md-none me-auto" type="button" data-bs-toggle="collapse"
+                id="navToggle" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Logo: appears second on xs/sm, first on md+ -->
+            <a class="navbar-brand ms-md-0 ms-auto" href="/">
+                <img src="/images/logo1.png" alt="logo" style="height:60px; width:60px;">
+            </a>
+
             <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 d-none d-md-flex">
                     <li class="nav-item">
                         <a href="/"
                             class="nav-link @(ViewContext.HttpContext.Request.Path == "/" ? "active" : "")">Home</a>
@@ -64,6 +67,36 @@
                 </ul>
                 <a href="/admin/login" class="nav-link">Admin</a>
             </div>
+            <div id="navOverlay" class="overlay-slide d-md-none">
+                <ul class="overlay-nav mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a href="/"
+                            class="overlay-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/roompage"
+                            class="overlay-link">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/restaurants"
+                            class="overlay-link">Restaurants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/halls"
+                            class="overlay-link">Halls</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about"
+                            class="overlay-link">About</a>
+                    </li>
+                </ul>
+                <div>
+                    <div class="text-center">
+                        <span>© 2025 Fleet Hotel ElGezirah. All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </nav>
     @* <div class="w-100 m-0 p-0"> *@
