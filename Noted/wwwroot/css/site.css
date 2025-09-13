@@ -1,4 +1,3 @@
-
 html {
   font-size: 14px;
 }
@@ -22,19 +21,18 @@ html {
   min-height: 100%;
 }
 
-
 #homePage {
   margin-top: 100px;
 }
 
-.form-floating>.form-control-plaintext::placeholder,
-.form-floating>.form-control::placeholder {
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
 }
 
-.form-floating>.form-control-plaintext:focus::placeholder,
-.form-floating>.form-control:focus::placeholder {
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
 
@@ -42,7 +40,6 @@ html {
   background-color: white;
   /* Dark charcoal */
   color: rgb(53, 59, 114);
-  ;
   /* Light text */
   border: 1px solid white;
   padding: 0.6rem 1.2rem;
@@ -83,23 +80,25 @@ html {
 #halls-info {
   width: 600px;
 }
+@media (min-width: 768px) {
+  #elegantCarouselHome img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+  }
 
-#elegantCarouselHome img {
-  width: 100%;
-  height: 700px;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-}
-#elegantCarouselRoom img {
-  width: 100%;
-  height: 700px;
-  object-fit: cover;
-  display: block;
-  margin: 0;
+  #elegantCarouselRoom img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+  }
 }
 
-.restaurantImg{
+.restaurantImg {
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -108,7 +107,7 @@ html {
 }
 
 .titleFont {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 3rem;
   font-weight: 600;
 }
@@ -120,7 +119,7 @@ html {
 }
 
 .italicFont {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-style: italic;
 }
 
@@ -139,10 +138,7 @@ html {
   background-size: 100% 100%;
   width: 30px;
   height: 30px;
-
 }
-
-
 
 .image-overlay-container {
   position: relative;
@@ -171,7 +167,7 @@ html {
   padding: 10px 24px;
   font-size: 1rem;
 }
-.img_btn{
+.img_btn {
   padding: 10px 24px;
   font-size: 1rem;
 }
@@ -186,7 +182,7 @@ html {
 
 .card-link:hover .card {
   transform: translateY(-3px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .navbar .navbar-nav .nav-link {
@@ -205,8 +201,6 @@ html {
 .pagebody {
   margin-top: 100px;
 }
-
-
 
 /* Adding a subtle box-shadow */
 .form-select:focus,
@@ -283,6 +277,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     gap: 20px;
   }
+  #elegentCarouselHome {
+    height: 40vh;
+    width: 100%;
+  }
+  .carousel-inner {
+    height: 30vh;
+    width: 100%;
+    
+  }
+  #elegentCarouselHome img {
+    object-fit: fill;
+    object-position: center bottom;
+  }
+  #elegentCarouselRoom img {
+    object-fit: fill;
+  }
 }
 
 .navbar .nav-link.active {
@@ -298,8 +308,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 5px;
   font-size: medium;
   font-style: italic;
-  font-family: 'system-ui', serif;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  font-family: "system-ui", serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 #info-overlay {
   opacity: 0;
@@ -314,7 +324,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: translateY(0);
 }
 
-.button1{
+.button1 {
   background-color: #ffffff;
   color: rgb(54, 46, 90);
   border: 2px solid #212455;
@@ -324,7 +334,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: all 0.3s ease;
 }
 
-.buttonReview{
+.buttonReview {
   background-color: #212455;
   color: #ffffff;
   border: 2px solid #212455;
@@ -335,7 +345,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-decoration: none;
   border-radius: 12px;
 }
-.buttonReview:hover{
+.buttonReview:hover {
   background-color: white;
   color: #212455;
   border: 2px solid #212455;
@@ -347,12 +357,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 12px;
 }
 
-.aboutButton:hover{
+.aboutButton:hover {
   background-color: white;
   color: #212455;
   border: 2px solid #212455;
   padding: 5px 12px;
-  
+
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -373,10 +383,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   will-change: transform, opacity;
   transform: translateX(-100%);
   opacity: 0;
-  transition: transform 550ms cubic-bezier(.2, .9, .2, 1),
-    opacity 350ms ease;
+  transition: transform 550ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 350ms ease;
   background: white;
-  padding: 2rem;
+  padding: 0.1rem 1rem;
   display: flex;
   flex-direction: column;
   /* keep nav vertical */
@@ -415,11 +424,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .overlay-link {
   display: flex;
   justify-content: space-between;
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   color: rgba(36, 27, 70, 0.98);
   text-decoration: none;
   padding: 0.8rem 0;
-  transition: color .18s ease, transform .18s ease;
+  transition: color 0.18s ease, transform 0.18s ease;
 }
 
 .overlay-link:hover {
