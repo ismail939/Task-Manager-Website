@@ -69,13 +69,7 @@ html {
   max-width: 1000px;
   margin: 0 auto;
 }
-#elegantCarouselRoom {
-  width: 1000px;
-  margin: 0;
-}
-#carousel-info {
-  width: 300px;
-}
+
 #halls-info {
   width: 600px;
 }
@@ -94,6 +88,20 @@ html {
     object-fit: cover;
     display: block;
     margin: 0;
+  }
+  #elegantCarouselRoom {
+    width: 52%;
+    margin: 0;
+  }
+  #carousel-info {
+    width: 16%;
+    background: linear-gradient(135deg, #fdfbfb, #404063); /* Light gradient */
+    /* Alternative gradients are listed below */
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(156, 33, 33, 0.08);
+    font-family: "Helvetica Neue", sans-serif;
   }
 }
 
@@ -282,14 +290,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   #elegentCarouselRoom {
     height: 40vh;
-    width: 300px;
-    max-width: 100%;
-    }
+    width: 16%;
+  }
 
   .carousel-inner {
-    
     width: 100%;
-    
   }
   #elegentCarouselHome img {
     object-fit: fill;
@@ -300,12 +305,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     object-position: center bottom;
   }
   .imG {
-  width: 100%;
-  height: 300px;
-  object-fit: fill;
-  margin: 0 auto;
-  object-position: center bottom;
-}
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+    margin: 0 auto;
+    object-position: center bottom;
+  }
+  #carousel-info {
+    width: 100%;
+    background: linear-gradient(135deg, #fdfbfb, #515883); /* Light gradient */
+    /* Alternative gradients are listed below */
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(156, 33, 33, 0.08);
+    font-family: "Helvetica Neue", sans-serif;
+  }
 }
 
 .navbar .nav-link.active {
@@ -315,7 +330,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .info-box {
-  background-color: rgba(226, 226, 226, 0.9);
+  background-color: rgba(253, 254, 255, 0.459);
+  /* background: linear-gradient(135deg, #515883, #fdfbfb);  */
   color: black;
   padding: 10px 15px;
   border-radius: 5px;
