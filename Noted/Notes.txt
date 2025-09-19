@@ -1,0 +1,1 @@
+add inert attribute so transitions occur and the navbar is invisible and out of display

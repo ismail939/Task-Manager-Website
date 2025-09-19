@@ -71,7 +71,12 @@ html {
 }
 
 #halls-info {
-  width: 600px;
+  @media(min-width: 768px){
+    width: 31.25vw;
+  }
+  @media(max-width: 768px){
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
   #elegantCarouselHome img {

@@ -1,10 +1,10 @@
 @{
-  ViewData["Title"] = "Restaurants";
-  Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Restaurants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container justify-content-center gap-0.5 pagebody">
-    <div class="row mb-5">
+    <div class="mb-5 d-none d-md-row">
         <h3 class="text-center mb-3 italicFont">We have all kinds of delicious dishes</h3>
         <div class="col">
             <img src="/images/restaurant1.jpg" class="w-100 rounded restaurantImg" alt="Photo 1">
@@ -16,25 +16,31 @@
             <img src="/images/restaurant3.jpg" class="w-100 rounded restaurantImg" alt="Photo 3">
         </div>
     </div>
+    <div class="d-flex d-md-none overflow-auto gap-3 px-3 py-2 mb-5">
+        <img src="/images/restaurant1.jpg" class="rounded shadow-sm" style="height: 200px; width: 300px; flex-shrink: 0;" />
+        <img src="/images/restaurant2.jpg" class="rounded shadow-sm" style="height: 200px; width: 300px; flex-shrink: 0;" />
+        <img src="/images/restaurant3.jpg" class="rounded shadow-sm" style="height: 200px; width: 300px; flex-shrink: 0;" />
+    </div>
+
     <div class="row justify-content-center text-center mb-5">
         <a href="/menu.pdf" target="_blank" class="btn btn-primary w-50">Menu</a>
     </div>
     <div class="row mb-5">
         <h3 class="text-center mb-3 italicFont">Indoor</h3>
         <div class="col">
-            <img src="/images/elsalah.jpg" class="w-100 rounded imgRoom" alt="Photo 1">
+            <img src="/images/elsalah.jpg" class="w-100 rounded imG" alt="Photo 1">
         </div>
     </div>
     <div class="row mb-5">
         <h3 class="text-center mb-3 italicFont">Bartoom</h3>
         <div class="col">
-            <img src="/images/bartoom.jpg" class="w-100 rounded imgRoom" alt="Photo 1">
+            <img src="/images/bartoom.jpg" class="w-100 rounded imG" alt="Photo 1">
         </div>
     </div>
     <div class="row mb-5">
         <h3 class="text-center mb-3 italicFont">Flandara</h3>
         <div class="col">
-            <img src="/images/flandara.jpg" class="w-100 rounded imgRoom" alt="Photo 1">
+            <img src="/images/flandara.jpg" class="w-100 rounded imG" alt="Photo 1">
         </div>
     </div>
 </div>
